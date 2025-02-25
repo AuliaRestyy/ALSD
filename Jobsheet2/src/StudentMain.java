@@ -10,8 +10,11 @@ public class StudentMain {
         student1.updateGPA(3.9);
         student1.print();
 
-        Student4 student2 = new Student4("244107020015", "Rizky", "TI-1I", 3.5);
+        Student4 student2 = new Student4("244107020115", "Rizky", "TI-1I", 3.5);
         student2.updateGPA(3.3);
         student2.print();
+
+        Student4 studentResty = new Student4("244107020015", "Resty", "TI-1I", 4);
+        studentResty.print();
     }
 }

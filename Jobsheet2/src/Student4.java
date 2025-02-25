@@ -26,7 +26,11 @@ public class Student4 {
     }
 
     void updateGPA(double newGPA){
-        gpa = newGPA;
+        if (newGPA >= 0 && newGPA <= 100) {
+            gpa = newGPA;            
+        } else {
+            System.out.println("Invalid GPA");
+        }
     }
 
     String evaluate(){
