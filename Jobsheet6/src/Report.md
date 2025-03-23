@@ -69,3 +69,17 @@ c. The i loop will execute 49 times so bubble sort will perform 49 stages
 Result
 
 ![ResultDescending](img/resultDescending.png)
+
+**6.4 Assignment** 
+- The Lecturer class represents a lecturer with id, name, gender, and age
+- LecturerData class manages an array of Lecturer objects and provides methods to add, print, and sort the lecturers
+- add() method is used to add a Lecturer object to the lecturerData array if there is space
+- print() method is used to iterates through the lecturerData array and calls the print() method for each Lecturer object to display their details
+- sortingAsc() is used to sorts the lecturerData array by age in ascending order using the bubble sort algorithm
+- sortingDsc() is used to sorts the lecturerData array by age in descending order using the insertion sort algorithm
+- LecturerDemo class contains the main mathod, which is the entry point of the program
+- LecturerDemo class creates a LecturerData object with this code LecturerData lecturersData = new LecturerData();
+- Ten Lecturer objects are created and added to the lecturersData array using add() method
+- The original list of the lecturers is printed using the print() method
+- Then sortingAsc() method is called to sort the lecturers by age in ascending order, and then the sorted list is printed
+- sortingDsc() method is called to sort the lecturers by age in descending order, and then the sorted list is printed
