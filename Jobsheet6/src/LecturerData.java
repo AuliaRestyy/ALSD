@@ -41,5 +41,41 @@ public class LecturerData {
         }
     }
 
+    public int findNameSeqSearch(String search){
+        int position = -1;
+        for (int i = 0; i < lecturerData.length; i++) {
+            if (lecturerData[i].name.equalsIgnoreCase(search)) {
+                position = i;
+                break;
+            }
+        }
+        return position;
+    }
+
+    public int findAgeBinarySearch (int search, int left, int right) {
+        int mid;
+        if (right >= left) {
+            mid = (left + right) / 2;
+            if (search == lecturerData[mid].age) {
+                return (mid);
+            } else if (lecturerData[mid].age > search) {
+                return findAgeBinarySearch(search, left, mid-1);
+            } else {
+                return findAgeBinarySearch(search, mid+1, right);
+            }
+        }
+
+        return -1;
+    }
+
+    public void showPositionAndData(String x, int pos){
+        if (pos != -1) {
+            System.out.println("Name " + x + " is found");
+            lecturerData[pos].print();
+        } else {
+            System.out.println("Name " + x + " is not found");
+        }
+    }
+
 
 }

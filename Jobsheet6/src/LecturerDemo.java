@@ -1,5 +1,7 @@
+import java.util.Scanner;
 public class LecturerDemo {
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
         LecturerData lecturersData = new LecturerData();
 
         lecturersData.add(new Lecturer("2501", "Imam", true, 32));
@@ -23,13 +25,18 @@ public class LecturerDemo {
         lecturersData.sortingDsc();
         System.out.println("Sorted lecturer list (by Age, descending) using Insertion Sort");
         lecturersData.print();
-        
 
+        System.out.println("---------------------------------");
+        System.out.print("Search lecturer by name: ");
+        String search = sc.nextLine();
+        int position = lecturersData.findNameSeqSearch(search);
+        lecturersData.showPositionAndData(search, position);
 
-
-
-
-
-
+        System.out.print("Search lecturer by age: ");
+        int findAge = sc.nextInt();
+        lecturersData.sortingAsc();
+        int pos = lecturersData.findAgeBinarySearch(findAge, 0, lecturersData.idx - 1);
+        lecturersData.showPositionAndData(String.valueOf(findAge), pos);
     }
 }
+
