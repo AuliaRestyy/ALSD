@@ -55,4 +55,32 @@ public class AbsenceData {
             System.out.println(listAbsence[i].calcAbsence() + " - " + listAbsence[i].std.studentName + " - " + listAbsence[i].crs.courseName);
         }
     }
+
+    public void AvgCourse(){
+        for (int i = 0; i < crsArray.length; i++) {
+            double totalPercentage = 0;
+            double average = 0;
+            int totalStudents = 0;
+            int fail = 0;
+            for (int j = 0; j < listAbsence.length; j++) {
+                if (listAbsence[j].crs.courseName.equalsIgnoreCase(crsArray[i].courseName)) {
+                    totalPercentage += listAbsence[j].calcAbsence();
+                    totalStudents++;
+                    average = (double) totalPercentage / totalStudents;
+
+                    if (listAbsence[j].calcAbsence() < 75) {
+                        fail++;
+                    }
+                } 
+            }
+            
+            System.out.println("Course: " + crsArray[i].courseName);
+            System.out.printf("Presention Avetage: %.2f%%\n", average);
+            System.out.println("Failed Students: " + fail);
+            System.out.println();
+
+        }
+
+
+    }
 }

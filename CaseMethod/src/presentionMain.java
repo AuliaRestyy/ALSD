@@ -12,6 +12,7 @@ public class presentionMain {
             System.out.println("3. Display Student Data");
             System.out.println("4. Sort Presention Data by Presention Percentage");
             System.out.println("5. Search Presention Data by NIM");
+            System.out.println("6. Show Course Summary");
             System.out.println("0. Exit");
             System.out.print("Enter Valid Menu Number: ");
             int menu = sc.nextInt();
@@ -45,6 +46,10 @@ public class presentionMain {
                     String nim = sc.nextLine();
                     System.out.println("=== SEARCH ATTENDANCE DATA BY NIM ===");
                     data.searchNim(nim);
+                    break;
+                case 6:
+                    System.out.println("Course Summary");
+                    data.AvgCourse();
                     break;
                 case 0:
                 System.out.println("Exiting Program");
