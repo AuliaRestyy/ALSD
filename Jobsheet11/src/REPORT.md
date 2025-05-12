@@ -9,8 +9,8 @@
 
 ## 2.1.2 Result
 
-![experiment1](img/experiment1-1.png)
-![experiment1](img/experiment1-2.png)
+![experiment1](img/experiment1.png)
+![experiment1](img/experiment12.png)
 
 **2.1.3 Question** 
 1. In the Queue class, the attributes front and rear are initially set to -1 to inidcate that the queue is currently empty and has no valid front or rear position yet
@@ -20,16 +20,18 @@
 5. This line is used to increment index i while maintaining the circular structure of the queue. by using the modulo operator, the index automatically wraps around to 0 when it reaches max.
 6. A queue overflow occurs when an attempt is made to enqueue data into a queue that is already full. In the program this condition is handled in this line
 
-![experiment1](img/experiment1-2.png)
+![Queue Overflow](img/QueueFull.png)
 
 7. I modify this method
 
-![experiment1](img/experiment1-2.png)
+![Exit](img/Enqueue.png)
 
 ## 2.2.2 Result
 
-![experiment1](img/experiment1-1.png)
-![experiment1](img/experiment1-2.png)
+![experiment2](img/exp2.png)
+![experiment2](img/exp22.png)
+![experiment2](img/exp23.png)
+![experiment2](img/exp24.png)
 
 **2.2.3 Question** 
 1. The Queue class works with primitive int values, while StudentQueue is designed to manage complex objects of type Student.
@@ -37,15 +39,32 @@
 3. The front attribute is initialized to 0 which differs from the Queue class where front is initially -1. This difference is due to a design variation. The StudentQueue class assumes that the front position is always pointing to a valid index, even if the queue is empty.
 4. Program:
 
-![experiment1](img/experiment1-1.png)
-![experiment1](img/experiment1-2.png)
-![experiment1](img/experiment1-1.png)
+![viewRear method](img/viewRear().png)
+![viewRear main](img/main.png)
+![viewRear main](img/main2.png)
 
 ## 2.3 Assignment
 
-![experiment1](img/experiment1-1.png)
-![experiment1](img/experiment1-2.png)
+![Assignment](img/assignment1.png)
+![Assignment](img/assignment2.png)
+![Assignment](img/assignment3.png)
 
 **Program Flow** 
-1. The Queue class work
-
+1. The program displays a menu of options to the user in a do-while loop inside the main method. The program ask the user to input a number to choose a menu option. Based on the input, a switch-case structure runs the corresponding block of code
+2. If the user choose option 1 (Add student), the program asks the user to input student data (NIM, name, study program, and class name). After collecting the inputs, a Student object is created and passed to the enqueue(student) method.
+- The enqueue method checks if the queue is full using isFull()
+- If not full, it increases the rear pointer using circular indexing (rear + 1)%max, stores the student object and increments size by 1
+3. Option 2 (Process KRS approval for 2 students), the program processes 2 students at once by calling dequeue() in a loop
+- The dequeue() method checks if the queue is empty using isEmpty()
+- If not empty, it retrieves the student at front, advances front using circular indexing, decrease size, and returns the student
+- The student's information is then printed using print() method
+4. Option 3 (Display all students), the program calls queue.print() to shw all students currently in the queue. 
+- print() method loops from front to rear using circulara logic
+- Each student is printed using their print() method
+5. Option 4 (Show the first 2 students), the program prints the first 2 student queue without removing them. It runs a loop up to 2 times and calculates the actual index using (front+i)%max to get the right student in the circular array and prints them
+6. Option 5 (Show last student), the program calls the viewRear() method to show the most recently added student.
+- viewRear() method directly accesses the student at rear and prints their data
+7. Option 6 (Show total students), the program prints the current size of the queue (how many students are still waiting for KRS approval)
+8. Option 7 (Show total approved students), the program displays the value of approvedStudent (a counter for how many student have completed the approval process), and prints 30 minus approvedStudent to show the number of remaining students that can be approved by the lecturer
+9. Option 8 (Clear data), the program reset the queue by setting front, rear, size, and also approvedStudent back to their empty value
+10. Option 0 (Exit), the loop breaks, and the program stops running
