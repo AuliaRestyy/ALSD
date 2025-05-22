@@ -70,7 +70,7 @@ public class SingleLinkedList04 {
             temp.next = new Node04(std, temp.next);
             if (temp.next.next == null) {
                 tail = temp.next;
-            }
+            } 
         }
     }
 

@@ -10,7 +10,7 @@ public class StudentServiseMain {
             System.out.println("2. Serve Next Student");
             System.out.println("3. View Front Student");
             System.out.println("4. View Rear Student");
-            System.out.println("5. View Queue Status");
+            System.out.println("5. Total Number of Students");
             System.out.println("6. Clear Queue");
             System.out.println("7. Exit");
             System.out.print("Enter your choice: ");
@@ -68,10 +68,7 @@ public class StudentServiseMain {
                     break;
 
                 case 5:
-                    System.out.println("\nQueue Status:");
-                    System.out.println("Is empty: " + queue.isEmpty());
-                    System.out.println("Is full: " + queue.isFull());
-                    System.out.println("Total students in queue: " + queue.getQueueSize());
+                    System.out.println("Total students in queue: " + queue.size);
                     queue.displayQueue();
                     break;
 

@@ -2,7 +2,7 @@ public class StudentQueue {
     Node front;
     Node rear;
     int size;
-    final int MAX_SIZE = 100;
+    int max = 100;
 
     public StudentQueue() {
         front = null;
@@ -15,7 +15,7 @@ public class StudentQueue {
     }
 
     public boolean isFull() {
-        return size == MAX_SIZE;
+        return size == max;
     }
 
     public void enqueue(Student std) {
@@ -64,10 +64,6 @@ public class StudentQueue {
         return rear.data;
     }
 
-    public int getQueueSize() {
-        return size;
-    }
-
     public void clear() {
         front = rear = null;
         size = 0;
@@ -78,20 +74,15 @@ public class StudentQueue {
         if (isEmpty()) {
             System.out.println("Queue is empty");
             return;
-        }
+        }   
 
-        System.out.println("\nCurrent Queue:");
-        System.out.println("Total students in queue: " + size);
+        System.out.println("Current Queue:");
         System.out.println();
 
         Node current = front;
-        int position = 1;
         while (current != null) {
-            System.out.println("Position #" + position);
             current.data.display();
-            current = current.next;
-            position++;
-        }
+            current = current.next;        }
     }
 }
 
