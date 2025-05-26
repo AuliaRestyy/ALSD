@@ -23,5 +23,26 @@ public class DoubleLinkedListsMain {
         dll.print();
         dll.remove(1);
         dll.print();
+
+        dll.add(0, new Student("333", "Aulia", "TI-1C", 3.99)); 
+        dll.add(1, new Student("444", "Resty", "TI-1C", 3.98));
+        System.out.println("Size: " + dll.getSize());
+        dll.print();
+        System.out.println("Index of 444: " + dll.indexOf("444"));
+        dll.removeAfter("444");
+        dll.print();
+
+        Student first = dll.getFirst();
+        System.out.println("First: ");
+        first.print();
+
+        Student last = dll.getLast();
+        System.out.println("Last: ");
+        last.print();
+
+        Student searchedIdx = dll.getIndex(2);  
+        System.out.println("Index 2: ");
+        searchedIdx.print();                          
+
     }
 }

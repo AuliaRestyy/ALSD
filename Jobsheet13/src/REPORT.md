@@ -32,14 +32,14 @@ prev: points to the preceding node, allowing backward traversal.
 2. This condition checks if the list has only one node, if true both head and tail must be set to null to properly empty the list. Without this check, the methods might incorrectly assume multiple nodes exist, leading to NullPointerException.
 3. We can do traverse from head to find the second to last node, then update its next pointer to null like this:
 
-![experiment1](img/remove last.png)
+![experiment1](img/removeLast.png)
 
 4. This code handle edge cases where the list is empty, avoiding NullPointerException when attempting to access nodes.
 5. At the beginning it calls removeFirst() to update head and break the forward/backward links. At the ened it calls removeLast() to update tail and break the links.
 6. The process is first locate the node at index(temp) and update the surrounding nodes links temp.prev.next = temp.next; temp.next.prev = temp.prev;
 7. Modified code:
 
-![experiment1](img/remove index.png)
+![experiment1](img/removeIndex.png)
 
 ## Assignment
 
@@ -53,7 +53,7 @@ prev: points to the preceding node, allowing backward traversal.
 - If index is in middle positions, it locates the node before the target position and insert the new node by adjusting pointers
 2. removeAfter()
 
-![experiment1](img/remove after.png)
+![experiment1](img/removeAfter.png)
 
 - The method searches for the node containing the key
 - If next node is tail, it calls removeLast()
@@ -67,14 +67,14 @@ prev: points to the preceding node, allowing backward traversal.
 - getIndex() validates index, traverses to the specified position and returns the node's data
 4. getSize()
 
-![experiment1](img/get size.png)
+![experiment1](img/getSize.png)
 
 - The method traverses from head to tail
 - Increment counter for each node
 - Return total count
 5. indexOf()
 
-![experiment1](img/index of.png)
+![experiment1](img/IndexOf.png)
 
 - The method traverses list while checking each node's nim
 - It returns current index if found and -1 if not found

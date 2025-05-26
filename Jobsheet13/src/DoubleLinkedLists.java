@@ -121,6 +121,7 @@ public class DoubleLinkedLists {
                     temp.next.prev = newNode;
                     temp.next = newNode;
                 }
+                return;
             }
             temp = temp.next;
         }
@@ -159,13 +160,13 @@ public class DoubleLinkedLists {
         } else if(head == tail) {
             head = tail = null;
         } else {
-            Node temp = head;
-            while (temp.next.next != null) {
-                temp = temp.next;
-            }
-            temp.next = null;
-            // tail = tail.prev;
-            // tail.next = null;
+            // Node temp = head;
+            // while (temp.next.next != null) {
+            //     temp = temp.next;
+            // }
+            // temp.next = null;
+            tail = tail.prev;
+            tail.next = null;
         }
     }
 
@@ -201,12 +202,13 @@ public class DoubleLinkedLists {
             if (temp.data.nim.equalsIgnoreCase(key)) {
                 if (temp.next == null) {
                     System.out.println("No node after " + key + " to remove!");
+                } else if (temp.next == tail) {
+                    removeLast();
                 } else {
-                    if (temp.next == tail) {
-                        removeLast();
-                    } else {
-                        temp.next = temp.next.next;
-                        temp.next.prev = temp;
+                    Node delete = temp.next;
+                    temp.next = delete.next;
+                    if (delete.next != null) {
+                        delete.next.prev = temp;
                     }
                 }
                 return;
