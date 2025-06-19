@@ -37,6 +37,23 @@ public class GasStQueue {
         System.out.println(">> Vehicle has been added to the queue");
     }
 
+    public void addFirst(Vehicle vhc) {
+        if (isFull()) {
+            System.out.println("Queue is full. Cannot add more vehicles");
+            return;
+        }
+
+        Node newNode = new Node(vhc);
+        if (isEmpty()) {
+            front = rear = newNode;
+        } else {
+            newNode.next = front;
+            front = newNode;
+        }
+        size++;
+        System.out.println(">> Vehicle has been added to the queue");
+    }
+
     public Vehicle dequeue() {
         if (isEmpty()) {
             System.out.println("Queue is empty. No vehicle to serve");

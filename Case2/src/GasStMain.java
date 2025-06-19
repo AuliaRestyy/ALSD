@@ -24,8 +24,18 @@ public class GasStMain {
                     String type = sc.nextLine();
                     System.out.print("Enter vehicle brand: ");
                     String brand = sc.nextLine();
-                    Vehicle newVehicle = new Vehicle(plateNum, type, brand);
-                    gasSt.enqueue(newVehicle);
+                    System.out.print("Are you vip member (y/n)?");
+                    String member = sc.nextLine();
+                    Boolean isVvip;
+                    if (member.equalsIgnoreCase("y")) {
+                        isVvip = true;
+                        Vehicle newVehicle = new Vehicle(plateNum, type, brand, isVvip);
+                        gasSt.addFirst(newVehicle);
+                    } else {
+                        isVvip = false;
+                        Vehicle newVehicle = new Vehicle(plateNum, type, brand, isVvip);
+                        gasSt.enqueue(newVehicle);
+                    }
                     break;
                 case 2:
                     System.out.println("-- Vehicle Queue --");
