@@ -19,6 +19,7 @@ public class Vehicle {
         System.out.println("Number Plate:" + plateNum);
         System.out.println("Type: " + type);
         System.out.println("Brand: " + brand);
+        System.out.println("Vvip : " + isVvip);
     }
 
 }
