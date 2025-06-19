@@ -9,6 +9,60 @@ public class BinaryTree04 {
         return root == null;
     }
 
+    public void addRekursif(Student04 data) {
+        root = addRekursif(root, data);
+    }
+
+    private Node04 addRekursif(Node04 node, Student04 data) {
+        if (node == null) {
+            return new Node04(data);
+        }
+        if (data.ipk < node.data.ipk) {
+            node.left = addRekursif(node.left, data);
+        } else if (data.ipk > node.data.ipk) {
+            node.right = addRekursif(node.right, data);
+        }
+        return node;
+    }
+
+    public void getMinIPK() {
+        if (isEmpty()) {
+            System.out.println("Tree is empty");
+            return;
+        }
+        Node04 current = root;
+        while (current.left != null) {
+            current = current.left;
+        }
+        current.data.print();
+    }
+
+    public void getMaxIPK() {
+        if (isEmpty()) {
+            System.out.println("Tree is empty");
+            return;
+        }
+        Node04 current = root;
+        while (current.right != null) {
+            current = current.right;
+        }
+        current.data.print();
+    }
+
+    public void displayStudentsWithIPKAbove(double threshold) {
+        displayStudentsWithIPKAbove(root, threshold);
+    }
+
+    private void displayStudentsWithIPKAbove(Node04 node, double threshold) {
+        if (node != null) {
+            displayStudentsWithIPKAbove(node.left, threshold);
+            if (node.data.ipk > threshold) {
+                node.data.print();
+            }
+            displayStudentsWithIPKAbove(node.right, threshold);
+        }
+    }
+
     public void add(Student04 data) {
         if (isEmpty()) {
             root = new Node04(data);
